@@ -1,0 +1,15 @@
+parser: "@typescript-eslint/parser"
+
+plugins:
+  - "@typescipt-eslint"
+
+extends:
+  - "eslint:recommended"
+  - "plugin:@typescript-eslint/recommended"
+
+env:
+  node: true
+
+parserOptions:
+  project:
+    - "packages/*"
