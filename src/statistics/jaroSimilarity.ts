@@ -57,3 +57,5 @@ function matchingChars(
 
   return [matching, matchesA, matchesB];
 }
+
+export default jaro;
