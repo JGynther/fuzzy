@@ -1,15 +1,16 @@
-function jaro(a: string, b: string) {
+// https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance
+function jaroSimilarity(a: string, b: string) {
   [a, b] = [a, b].map((s) => s.toLowerCase().trim());
   if (a === b) return 1.0;
 
-  const [lenA, lenB] = [a.length, b.length];
+  const [s1, s2] = [a.length, b.length];
 
-  const [m, matchesA, matchesB] = matchingChars(a, b, lenA, lenB);
+  const [m, matchesA, matchesB] = matchingChars(a, b, s1, s2);
   if (m === 0) return 0.0;
 
-  const t = transpositions(a, b, matchesA, matchesB, lenA);
+  const t = transpositions(a, b, matchesA, matchesB, s1);
 
-  return (m / lenA + m / lenB + (m - t) / m) / 3.0;
+  return (m / s1 + m / s2 + (m - t) / m) / 3.0;
 }
 
 function transpositions(a: string, b: string, arrA: Uint8Array, arrB: Uint8Array, len: number) {
@@ -58,4 +59,4 @@ function matchingChars(
   return [matching, matchesA, matchesB];
 }
 
-export default jaro;
+export default jaroSimilarity;
