@@ -1,4 +1,4 @@
-import jaroWinkler from "./jaroWinkler";
+import jaroWinkler from "@statistics/jaroWinkler";
 
 /**
  * Calculates a generalized Monge-Elkan [1] similarity measure between two strings split into tokens.

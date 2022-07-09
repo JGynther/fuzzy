@@ -1,4 +1,4 @@
-import jaroSimilarity from "./jaroSimilarity";
+import jaroSimilarity from "@statistics/jaroSimilarity";
 
 // https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance
 function jaroWinkler(a: string, b: string, p = 0.1) {
