@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
     "target": "es6",
+    "module": "commonjs",
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
     "noEmit": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "baseUrl": "./src"
+    "baseUrl": "."
   },
-  "include": ["**/*.ts"]
+  "include": ["src/**/*.ts"]
 }
