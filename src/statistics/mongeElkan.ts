@@ -21,7 +21,6 @@ function generalizedMongeElkan(
   a: string[],
   b: string[],
   m = 5,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   sim: SimFunction = jaroWinkler
 ): number {
   const l1 = a.length;
