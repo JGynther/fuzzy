@@ -11,7 +11,8 @@
     "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
-      "@statistics/*": ["src/statistics/*"]
+      "@statistics/*": ["src/statistics/*"],
+      "@scorer": ["src/scorer.ts"]
     }
   },
   "include": ["src/**/*.ts"]
