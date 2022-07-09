@@ -1,4 +1,4 @@
-import generalizedMongeElkan from "@statistics/mongeElkan";
+import generalizedMongeElkan, { type SimFunction } from "@statistics/mongeElkan";
 
 const scorer = {
   single,
@@ -7,7 +7,7 @@ const scorer = {
 
 type Score = { query: string; threshold?: number } & (
   | { arr: string[]; key?: undefined }
-  | { arr: Record<string, any>[]; key: string }
+  | { arr: Record<string, unknown>[]; key: string }
 );
 
 function score({ arr, query, key, threshold = 0.7 }: Score) {
@@ -16,7 +16,7 @@ function score({ arr, query, key, threshold = 0.7 }: Score) {
 
   for (let i = 0; i < length; ++i) {
     const string = key ? arr[i][key] : arr[i];
-    const score = scorer.single(query, string);
+    const score = scorer.single(query, string as string);
 
     if (score < threshold) continue;
 
@@ -26,7 +26,7 @@ function score({ arr, query, key, threshold = 0.7 }: Score) {
   return scores;
 }
 
-function single(a: string, b: string, m?: number, sim?: (...args: any[]) => number) {
+function single(a: string, b: string, m?: number, sim?: SimFunction) {
   const tokensA = toTokens(a);
   const tokensB = toTokens(b);
   return generalizedMongeElkan(tokensA, tokensB, m, sim);

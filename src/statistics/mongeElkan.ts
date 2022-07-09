@@ -1,5 +1,8 @@
 import jaroWinkler from "@statistics/jaroWinkler";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type SimFunction = (a: string, b: string, ...args: any[]) => number;
+
 /**
  * Calculates a generalized Monge-Elkan [1] similarity measure between two strings split into tokens.
  *
@@ -18,7 +21,8 @@ function generalizedMongeElkan(
   a: string[],
   b: string[],
   m = 5,
-  sim: (...args: any[]) => number = jaroWinkler
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  sim: SimFunction = jaroWinkler
 ): number {
   const l1 = a.length;
   const l2 = b.length;
@@ -39,3 +43,4 @@ function generalizedMongeElkan(
 }
 
 export default generalizedMongeElkan;
+export type { SimFunction };
