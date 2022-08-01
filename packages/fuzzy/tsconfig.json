@@ -1,9 +1,13 @@
 {
   "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "lib": ["esnext"],
+    "outDir": "./dist",
+    "declaration": true,
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "noEmit": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "baseUrl": ".",
