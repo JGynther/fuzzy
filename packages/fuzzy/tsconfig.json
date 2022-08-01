@@ -14,7 +14,6 @@
     "paths": {
       "@statistics/*": ["src/statistics/*"],
       "@scorer": ["src/scorer.ts"],
-      "@data/*": ["data/*"],
       "@fuzzy": ["src/index.ts"]
     }
   },
