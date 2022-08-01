@@ -15,3 +15,6 @@ env:
 parserOptions:
   project:
     - "packages/*"
+
+ignorePatterns:
+  - "packages/*/dist/*"
