@@ -39,6 +39,7 @@ function single(a: string, b: string, m?: number, sim?: SimFunction) {
 }
 
 function toTokens(s: string) {
+  s = s.toLowerCase();
   const splitters = ["(", ")", "[", "]", "{", "}", ".", ",", ":", ";", "-"];
   return replaceMultiple(s, splitters, " ").split(" ");
 }
