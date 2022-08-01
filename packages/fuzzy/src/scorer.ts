@@ -16,9 +16,14 @@ function score({ arr, query, key, threshold = 0.7 }: Score) {
 
   for (let i = 0; i < length; ++i) {
     let string = arr[i];
-    if (key !== undefined && typeof string === "object") string = string[key];
-    const score = scorer.single(query, string as string);
 
+    if (typeof string === "object") {
+      if (!key)
+        throw new Error("Are you missing a key? Key is required if data is an array of objects.");
+      string = string[key];
+    }
+
+    const score = scorer.single(query, string as string);
     if (score < threshold) continue;
 
     scores.push({ string, score });
@@ -39,8 +44,15 @@ function toTokens(s: string) {
 }
 
 function replaceMultiple(s: string, arr: string[], to: string) {
-  arr.forEach((c) => (s = s.replaceAll(c, to)));
+  arr.forEach((c) => (s = replaceAll(s, c, to)));
   return s;
 }
 
+function replaceAll(s: string, c: string, to: string) {
+  let result = "";
+  for (let i = 0; i < s.length; ++i) result += s[i] === c ? to : s[i];
+  return result;
+}
+
 export default scorer;
+export type { Score };
