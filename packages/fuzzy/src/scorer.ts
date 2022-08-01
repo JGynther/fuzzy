@@ -6,16 +6,16 @@ const scorer = {
 };
 
 type Score = { query: string; threshold?: number } & (
-  | { arr: string[]; key?: undefined }
-  | { arr: Record<string, string>[]; key: string }
+  | { data: string[]; key?: undefined }
+  | { data: Record<string, string>[]; key: string }
 );
 
-function score({ arr, query, key, threshold = 0.7 }: Score) {
-  const length = arr.length;
+function score({ data, query, key, threshold = 0.7 }: Score) {
+  const length = data.length;
   const scores = [];
 
   for (let i = 0; i < length; ++i) {
-    let string = arr[i];
+    let string = data[i];
 
     if (typeof string === "object") {
       if (!key)
