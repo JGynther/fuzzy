@@ -14,6 +14,7 @@
     "typescript": "^4.7.4"
   },
   "scripts": {
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "tui": "cd packages/tui && pnpm dev"
   }
 }
