@@ -1,8 +1,5 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
-    "lib": ["esnext"],
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
@@ -12,7 +9,9 @@
     "baseUrl": ".",
     "paths": {
       "@statistics/*": ["src/statistics/*"],
-      "@scorer": ["src/scorer.ts"]
+      "@scorer": ["src/scorer.ts"],
+      "@data/*": ["data/*"],
+      "@fuzzy": ["src/index.ts"]
     }
   },
   "include": ["src/**/*.ts"]
